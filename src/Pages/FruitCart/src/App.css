@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f7ff;
+  color: #1f1f2e;
+}
+
+/* TITLE */
+h1 {
+  text-align: center;
+  color: #6d28d9;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+/* LOGIN */
+.loginPage {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.loginPage button {
+  padding: 10px 18px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.loginPage button:hover {
+  transform: scale(1.05);
+  background: #5b21b6;
+}
+
+/* LOGOUT */
+.logoutBtn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+
+  background: #6d28d9;
+  color: white;
+
+  cursor: pointer;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  padding: 10px;
+}
+
+/* WRAPPER */
+.fruit-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeUp 0.4s ease;
+}
+
+/* CARD */
+.card {
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  background: white;
+
+  border: 2px solid var(--card-color);
+  color: var(--card-color);
+
+  position: relative;
+
+  transition: 0.3s ease;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(109, 40, 217, 0.2);
+}
+
+/* BADGE */
+.badge {
+  margin-top: 8px;
+  padding: 3px 8px;
+
+  font-size: 12px;
+  border-radius: 999px;
+
+  background: var(--card-color);
+  color: white;
+
+  animation: pop 0.2s ease;
+}
+
+/* BUTTON ROW */
+.btnRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.btnRow button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+
+  background: #ede9fe;
+  color: #5b21b6;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnRow button:hover {
+  transform: scale(1.1);
+  background: #ddd6fe;
+}
+
+/* QTY */
+.qty {
+  background: white;
+  border: 1px solid #ddd6fe;
+}
+
+/* UPDATES */
+.updates {
+  margin-top: 25px;
+  text-align: center;
+  color: #6d28d9;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

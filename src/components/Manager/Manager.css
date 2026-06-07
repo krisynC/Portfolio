@@ -1,0 +1,103 @@
+/* PAGE */
+.manager {
+    padding: 20px;
+    background: #0f172a;
+    color: #e5e7eb;
+    font-family: Arial, sans-serif;
+}
+
+/* INPUTS */
+.manager input {
+    padding: 8px;
+    margin: 5px 0;
+
+    background: #111827;
+    border: 1px solid #374151;
+    color: #e5e7eb;
+
+    border-radius: 6px;
+    outline: none;
+}
+
+/* FOCUS */
+.manager input:focus {
+    border-color: #22c55e;
+}
+
+/* ADD SECTION */
+.add-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* BASE BUTTON */
+button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    color: white;
+}
+
+/* ADD BUTTON (GREEN ACCENT) */
+.add {
+    background: #22c55e;
+}
+
+.add:hover {
+    background: #16a34a;
+}
+
+/* EMPLOYEE CARD */
+.employee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    margin: 8px 0;
+
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 8px;
+}
+
+/* BUTTON GROUP */
+.btns {
+    display: flex;
+    gap: 6px;
+}
+
+/* REMOVE (RED MINIMAL) */
+.remove {
+    background: #ef4444;
+}
+
+.remove:hover {
+    background: #dc2626;
+}
+
+/* EDIT (GREY GREEN ACCENT) */
+.edit {
+    background: #374151;
+    color: #22c55e;
+    border: 1px solid #22c55e;
+}
+
+.edit:hover {
+    background: #1f2937;
+}
+
+/* TITLE */
+.manager h1 {
+    font-size: 22px;
+    color: #e5e7eb;
+    margin-top: 10px;
+}
+
+/* STATS TEXT */
+.manager p {
+    color: #9ca3af;
+}

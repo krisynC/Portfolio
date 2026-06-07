@@ -1,0 +1,185 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0f1a;
+  color: white;
+}
+
+/* TITLE */
+.title {
+  font-size: 36px;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* GAME AREA */
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 20px;
+}
+
+/* USER TEXT */
+.userText {
+  margin-bottom: 10px;
+  text-align: center;
+  color: wheat;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* BOARD */
+.boardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 6px;
+
+  padding: 10px;
+  background: #121826;
+  border-radius: 10px;
+}
+
+/* CELLS */
+.cell {
+  width: 90px;
+  height: 90px;
+
+  border: 1px solid #2a2f3a;
+  background: #1b2233;
+
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.2s;
+}
+
+/* NO BOXY FEEL */
+.cell:hover {
+  background: #232c44;
+  transform: scale(1.03);
+}
+
+/* WINNER CELL */
+.winner {
+  background: #00ffd5;
+  color: #0b0f1a;
+}
+
+/* INFO PANEL */
+.info {
+  min-width: 200px;
+  padding: 14px;
+
+  background: #121826;
+  border-radius: 10px;
+  border: 1px solid #2a2f3a;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* H3 */
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 2px 0;
+}
+
+h3 span {
+  color: #00ffd5;
+  font-weight: 700;
+}
+
+/* RESET BUTTON (FLAT, NOT BOXY) */
+.resetBtn {
+  margin-top: 12px;
+  padding: 10px 14px;
+
+  background: transparent;
+  /* 🔥 no boxy feel */
+  border: 1px solid #00ffd5;
+  color: #00ffd5;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.resetBtn:hover {
+  background: #00ffd5;
+  color: #0b0f1a;
+}
+
+/* =========================
+   MODAL OVERLAY (IMPORTANT FIX)
+========================= */
+
+/* BACKGROUND LAYER (dim but unaffected) */
+.dim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+/* POPUP */
+.winPopup {
+  background: #121826;
+  padding: 20px;
+  border-radius: 12px;
+
+  font-size: 22px;
+  color: #00ffd5;
+
+  z-index: 1000;
+
+  animation: pop 0.25s ease;
+}
+
+/* POP ANIMATION */
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

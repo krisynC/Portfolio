@@ -1,0 +1,83 @@
+/* PAGE */
+.auth-container {
+    width: 320px;
+    margin: 60px auto;
+    padding: 20px;
+
+    background: #0b0f1a;
+    border: 1px solid #1f2937;
+    border-radius: 10px;
+
+    font-family: Arial, sans-serif;
+    color: #e5e7eb;
+}
+
+/* TITLE */
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #facc15;
+}
+
+/* INPUTS */
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 6px;
+
+    color: #e5e7eb;
+    outline: none;
+}
+
+/* INPUT FOCUS */
+.auth-container input:focus {
+    border-color: #facc15;
+}
+
+/* FORGOT TEXT */
+.forgot {
+    font-size: 12px;
+    text-align: right;
+    color: #9ca3af;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* BUTTON GROUP */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* BASE BUTTON */
+.button-group button {
+    flex: 1;
+    padding: 8px;
+
+    border: 1px solid #374151;
+    border-radius: 6px;
+
+    cursor: pointer;
+    background: #111827;
+    color: #e5e7eb;
+
+    transition: 0.2s;
+}
+
+/* HOVER */
+.button-group button:hover {
+    border-color: #facc15;
+}
+
+/* ACTIVE STATE */
+.active {
+    background: #facc15;
+    color: #0b0f1a;
+    font-weight: bold;
+    border: none;
+}

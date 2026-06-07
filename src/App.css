@@ -1,0 +1,132 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0f;
+    color: #ffffff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.layout_navbarWrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1f1f2a;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.navbar a {
+    margin: 0 14px;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   ROUTE WRAPPER
+========================= */
+.route_managerPage,
+.route_tttPage,
+.route_loginPage,
+.route_fruitPage,
+.route_shopPage,
+.projectsPage,
+.route_404 {
+    min-height: calc(100vh - 60px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #0a0a0f;
+}
+
+/* =========================
+   CONTAINER BOX
+========================= */
+.pageContainer {
+    width: 95%;
+    max-width: 1100px;
+
+    background: #11121a;
+    border: 1px solid #1f1f2a;
+    border-radius: 14px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* =========================
+   INPUTS
+========================= */
+input,
+select {
+    background: #0f1016;
+    border: 1px solid #2a2a3a;
+    color: #fff;
+
+    padding: 10px;
+    border-radius: 8px;
+
+    outline: none;
+    margin: 5px;
+}
+
+input:focus {
+    border-color: #e50914;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+    background: #e50914;
+    color: white;
+
+    border: none;
+    padding: 10px 14px;
+
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #ff0a16;
+    transform: scale(1.03);
+}
+
+/* =========================
+   404
+========================= */
+.route_404 {
+    color: #e50914;
+    font-size: 20px;
+    font-weight: bold;
+}

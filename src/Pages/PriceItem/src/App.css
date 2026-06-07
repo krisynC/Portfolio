@@ -1,0 +1,89 @@
+/* PAGE */
+.cartPage {
+  padding: 20px;
+  background: white;
+  color: #0f172a;
+  font-family: Arial, sans-serif;
+}
+
+/* TITLES */
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1d4ed8;
+  /* blue */
+  margin-bottom: 10px;
+}
+
+.subTitle {
+  font-size: 18px;
+  margin: 15px 0 10px;
+  color: #1e3a8a;
+}
+
+/* PRODUCT LIST */
+.productList {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  padding: 12px;
+  width: 180px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+
+  background: white;
+}
+
+/* CART LIST */
+.cartList {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ITEM */
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
+  border: 1px solid #dbeafe;
+  border-radius: 6px;
+
+  background: white;
+}
+
+/* EMPTY */
+.empty {
+  color: #64748b;
+}
+
+/* TOTAL */
+.total {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+/* BUTTON */
+button {
+  background: #1d4ed8;
+  color: white;
+
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1e40af;
+}
