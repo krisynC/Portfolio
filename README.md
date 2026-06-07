@@ -1,16 +1,31 @@
-# React + Vite
+# 🚀 Portfolio Project (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A multi-page React application built using Vite and React Router.  
+It demonstrates CRUD operations, authentication flow, and multiple mini projects.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🧭 Multi-page routing (Home, About, Projects, Contact)
+- 👨‍💼 Employee Manager (Add / Update / Delete)
+- 🔐 Login & Signup system (frontend auth simulation)
+- 🧺 Mini Projects:
+  - Tic Tac Toe Game
+  - Shopping Cart
+  - Fruit Cart
+- ⚡ Fast UI updates using React Hooks (useState, useEffect)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React JS
+- Vite
+- React Router DOM
+- JavaScript (ES6+)
+- CSS
+
+---
+
+## 📂 Project Structure
