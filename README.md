@@ -1,30 +1,44 @@
-# 🚀 Portfolio Project (React + Vite)
+# 🚀 React Portfolio Project (Multi Page App)
 
-A multi-page React application built using Vite and React Router.  
-It demonstrates CRUD operations, authentication flow, and multiple mini projects.
+This is a multi-page React application built using React Router.  
+It contains multiple mini-projects and a central Employee Manager system demonstrating CRUD operations and state management.
 
 ---
 
 ## ✨ Features
 
-- 🧭 Multi-page routing (Home, About, Projects, Contact)
-- 👨‍💼 Employee Manager (Add / Update / Delete)
-- 🔐 Login & Signup system (frontend auth simulation)
-- 🧺 Mini Projects:
-  - Tic Tac Toe Game
-  - Shopping Cart
-  - Fruit Cart
-- ⚡ Fast UI updates using React Hooks (useState, useEffect)
+### 🧭 Routing System
+- Home Page
+- About Page
+- Contact Page
+- Projects Page
+
+### 👨‍💼 Employee Manager (CRUD)
+- Add Employee
+- Update Employee
+- Delete Employee
+- State managed using `useState` in parent component (App.jsx)
+
+### 🎮 Mini Projects
+- Tic Tac Toe Game
+- Login / Signup Authentication UI (frontend simulation)
+- Fruit Cart (quantity management)
+- Shopping Cart (price calculation logic)
+
+### ⚡ UI Structure
+- Navbar persistent across pages
+- Page-based routing layout
+- Component-based architecture
 
 ---
 
 ## 🛠️ Tech Stack
 
 - React JS
-- Vite
 - React Router DOM
 - JavaScript (ES6+)
 - CSS
+- Vite
 
 ---
 
