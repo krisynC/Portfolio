@@ -59,5 +59,25 @@ All of the following are implemented as reusable components/modules inside the a
 - CSS
 
 ---
-
 ## 📂 Project Architecture
+
+The application follows a modular and component-driven structure. Each feature is organized into separate folders for better scalability and maintainability.
+
+src/
+│
+├── components/
+│   ├── Navbar/                 # Navigation bar (persistent layout)
+│   ├── Manager/                # Employee CRUD module (Add, Update, Delete)
+│   ├── LoginAuth/              # Authentication UI (Login/Signup)
+│
+├── pages/
+│   ├── Home/                   # Landing page
+│   ├── About/                  # About section
+│   ├── Contact/               # Contact page
+│   ├── Projects/              # Overview of all modules
+│   ├── TicTacToe/             # Game module (state-based logic)
+│   ├── FruitCart/             # Quantity management system
+│   ├── ShoppingCart/          # Pricing & cart logic
+│
+├── App.jsx                    # Main routing + state management
+├── main.jsx                   # React entry point
