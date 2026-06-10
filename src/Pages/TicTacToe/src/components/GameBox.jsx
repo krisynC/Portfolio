@@ -49,7 +49,7 @@ const GameBox = ({ user }) => {
 
             <div className="resetWrap">
                 <button className="resetBtn" onClick={ resetGame }>
-                    Lund
+                    Reset
                 </button>
             </div>
 

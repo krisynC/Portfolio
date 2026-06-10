@@ -3,7 +3,6 @@ import "./Manager.css";
 
 const Manager = ({ employees = [], setEmployees }) => {
 
-    // 🔥 Local states
     const [search, setSearch] = useState("");
     const [newName, setNewName] = useState("");
     const [loading, setLoading] = useState(false);
@@ -87,7 +86,6 @@ const Manager = ({ employees = [], setEmployees }) => {
                 onChange={ (e) => setSearch(e.target.value) }
             />
 
-            {/* ➕ Add Employee Section */ }
             <div className="add-section">
 
                 <input
@@ -103,20 +101,16 @@ const Manager = ({ employees = [], setEmployees }) => {
 
             </div>
 
-            {/* 📌 Title */ }
             <h1>Employee Management System</h1>
 
-            {/* 📊 Count */ }
             <p>Total Employees: { employees.length }</p>
 
-            {/* ⏳ Loading */ }
             { loading && <p>Loading employees...</p> }
-
-            {/* ❌ Error */ }
+            
             { error && <p style={ { color: "red" } }>{ error }</p> }
-
-            {/* 👇 Employee List */ }
+    
             { filteredEmployees.map((emp) => (
+
                 <div key={ emp.id } className="employee">
 
                     <span>{ emp.name }</span>
