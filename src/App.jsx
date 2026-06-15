@@ -10,8 +10,8 @@ import Projects from "./pages/Projects";
 import Manager from "./components/Manager/Manager";
 import TicTacToe from "./pages/TicTacToe/src/TicTacToe";
 import LoginAuth from "./components/LoginAuth/Login";
-import FruitCart from "./pages/FruitCart/src/FruitCart";
-import ShoppingCart from "./pages/PriceItem/src/ShoppingCart";
+import FruitCart from "./components/FruitCart/FruitCart";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 
 import About from "./pages/About";
 import Contact from "./pages/Contact";

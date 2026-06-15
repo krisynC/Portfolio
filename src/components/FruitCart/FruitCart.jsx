@@ -7,12 +7,31 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("loggedIn") === "true";
   });
-
   const [fruitList, setFruitList] = useState([
-    { name: "Banana", color: "#facc15", quantity: 0 },
-    { name: "Apple", color: "#ef4444", quantity: 0 },
-    { name: "Guava", color: "#22c55e", quantity: 0 },
-    { name: "Brinjal", color: "#a855f7", quantity: 0 }
+    {
+      name: "Banana",
+      quantity: 0,
+      image:
+        "https://images.pexels.com/photos/1093038/pexels-photo-1093038.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
+    {
+      name: "Apple",
+      quantity: 0,
+      image:
+        "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
+    {
+      name: "Guava",
+      quantity: 0,
+      image:
+        "https://images.pexels.com/photos/5945879/pexels-photo-5945879.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
+    {
+      name: "Brinjal",
+      quantity: 0,
+      image:
+        "https://images.pexels.com/photos/321551/pexels-photo-321551.jpeg?auto=compress&cs=tinysrgb&w=800",
+    },
   ]);
 
   const [cartSummary, setCartSummary] = useState({});
@@ -51,9 +70,9 @@ const App = () => {
   if (!isLoggedIn) {
     return (
       <div className="loginPage">
-        <h1>FRUIT STORE</h1>
+        <h1 className="loginTitle">FRUIT STORE</h1>
 
-        <button onClick={ loginUser }>
+        <button className="loginBtn" onClick={ loginUser }>
           LOGIN
         </button>
       </div>
@@ -61,20 +80,27 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className="app">
       <button className="logoutBtn" onClick={ logoutUser }>
         Logout
       </button>
 
-      <h1>{ title }</h1>
+      <h1 className="title">{ title }</h1>
 
       <div className="container">
         { fruitList.map((fruit, index) => (
           <div className="fruit-wrapper" key={ fruit.name }>
-
             <div
               className="card"
-              style={ { "--card-color": fruit.color } }
+              style={ {
+                backgroundImage: `
+                  linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.45)
+                  ),
+                  url(${fruit.image})
+                `,
+              } }
             >
               <h2>{ fruit.name }</h2>
 
@@ -86,7 +112,10 @@ const App = () => {
             </div>
 
             <div className="btnRow">
-              <button onClick={ () => updateQuantity(index, -1) }>
+              <button
+                className="btn"
+                onClick={ () => updateQuantity(index, -1) }
+              >
                 -
               </button>
 
@@ -94,27 +123,29 @@ const App = () => {
                 { fruit.quantity }
               </button>
 
-              <button onClick={ () => updateQuantity(index, 1) }>
+              <button
+                className="btn"
+                onClick={ () => updateQuantity(index, 1) }
+              >
                 +
               </button>
             </div>
-
           </div>
         )) }
       </div>
 
       <div className="updates">
-        <h3>Updates</h3>
+        <h3>Cart Updates</h3>
 
         { Object.keys(cartSummary).length === 0 ? (
-          <p>No updates yet</p>
+          <p>No items added yet</p>
         ) : (
           Object.entries(cartSummary).map(([name, value]) => (
             <p key={ name }>{ value }</p>
           ))
         ) }
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,101 +1,120 @@
 .contactPage {
     min-height: 100vh;
-    background: #0a0a0f;
+    width: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 30px;
-
     position: relative;
+
     overflow: hidden;
+
+    padding: 40px 20px;
+
+    background-image:
+        linear-gradient(rgba(10, 10, 15, 0.9),
+            rgba(10, 10, 15, 0.9)),
+        url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* =========================
-   FLOATING GLOW BACKGROUND
-========================= */
+/* FLOATING GLOW ORBS */
 .glow {
     position: absolute;
     width: 300px;
     height: 300px;
+
     border-radius: 50%;
 
-    filter: blur(120px);
-    opacity: 0.4;
+    filter: blur(90px);
 
-    animation: float 6s infinite alternate;
+    opacity: 0.25;
+
+    animation: floatGlow 8s infinite alternate;
 }
 
 .glow1 {
-    background: #e50914;
+    background: cyan;
     top: 10%;
-    left: 20%;
+    left: 10%;
 }
 
 .glow2 {
-    background: #4a00e0;
+    background: #ff00ff;
     bottom: 10%;
-    right: 20%;
+    right: 10%;
 }
 
-@keyframes float {
+@keyframes floatGlow {
     from {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 
     to {
-        transform: translateY(-40px);
+        transform: translateY(-60px);
     }
 }
 
-/* =========================
-   MAIN CARD
-========================= */
+/* MAIN CARD */
 .contactCard {
     width: 100%;
     max-width: 800px;
 
-    background: rgba(27, 28, 40, 0.8);
-    border: 1px solid #2a2a3a;
-    border-radius: 16px;
+    padding: 40px;
 
-    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 
     text-align: center;
+
     color: white;
 
-    backdrop-filter: blur(10px);
-
-    z-index: 2;
+    animation: fadeUp 0.8s ease;
 }
 
 /* TITLE */
 .contactCard h1 {
-    font-size: 28px;
+    font-size: 2.5rem;
+
     margin-bottom: 10px;
+
+    text-shadow:
+        0 0 10px cyan,
+        0 0 25px cyan;
 }
 
 /* TEXT */
 .contactCard p {
-    font-size: 14px;
-    color: #b3b3b3;
-    line-height: 1.6;
+    color: #d1d5db;
+
+    margin-bottom: 20px;
 }
 
-/* =========================
-   CAROUSEL
-========================= */
+/* CAROUSEL */
 .contactInfo {
-    margin-top: 25px;
-
     display: flex;
-    gap: 15px;
+
+    gap: 20px;
 
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
 
-    padding-bottom: 10px;
+    padding: 20px 10px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .contactInfo::-webkit-scrollbar {
@@ -103,73 +122,83 @@
 }
 
 .contactItem {
-    flex: 0 0 220px;
+    min-width: 220px;
 
-    background: #14151f;
-    border: 1px solid #2a2a3a;
-    border-radius: 14px;
+    padding: 20px;
 
-    padding: 15px;
+    border-radius: 15px;
 
-    scroll-snap-align: center;
+    background: rgba(255, 255, 255, 0.08);
 
-    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    transition: 0.3s;
 
     cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    backdrop-filter: blur(10px);
 }
 
 .contactItem:hover {
-    transform: scale(1.05);
-    border-color: #e50914;
+    transform: translateY(-8px);
+
+    box-shadow: 0 0 20px cyan;
 }
 
-/* TEXT */
 .contactItem h3 {
-    font-size: 14px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+
+    color: cyan;
 }
 
 .contactItem p {
-    font-size: 13px;
-    color: #d0d0d0;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+.contactItem p:hover {
+    color: cyan;
+}
+
+/* BUTTON */
 .contactActions {
     margin-top: 20px;
 }
 
 .contactActions button {
-    background: #25D366;
-    color: white;
+    padding: 12px 20px;
 
     border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
+
+    border-radius: 10px;
+
+    background: #25D366;
+
+    color: white;
+
+    font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .contactActions button:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+
+    box-shadow: 0 0 20px #25D366;
 }
 
 /* FOOTER */
 .contactFooter {
-    margin-top: 20px;
-    font-size: 13px;
-    color: #b3b3b3;
+    margin-top: 25px;
+
+    color: #9ca3af;
+
+    font-size: 0.95rem;
 }
 
-/* ANIMATION */
+/* ENTRY ANIMATION */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -179,5 +208,20 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .contactCard {
+        padding: 25px;
+    }
+
+    .contactCard h1 {
+        font-size: 1.8rem;
+    }
+
+    .contactItem {
+        min-width: 180px;
     }
 }

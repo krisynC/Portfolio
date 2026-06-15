@@ -1,76 +1,208 @@
 .projectsPage {
-    width: 100%;
     min-height: 100vh;
-
-    padding: 30px;
-    background: #0a0a0f;
+    width: 100%;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+
+    padding: 40px 20px 80px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(rgba(10, 10, 15, 0.9),
+            rgba(10, 10, 15, 0.9)),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* HEADER BOX */
+.headerBox {
+    padding: 25px 40px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+/* TITLE */
+.pageTitle {
+    font-size: 3.5rem;
+
+    font-weight: 800;
+
+    color: white;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 10px cyan,
+        0 0 25px cyan,
+        0 0 50px rgba(0, 255, 255, 0.4);
+}
+
+/* SUBTITLE */
+.pageSubtitle {
+    margin-top: 10px;
+
+    color: #cbd5e1;
+
+    font-size: 1.1rem;
 }
 
 /* GRID */
 .projectsGrid {
     width: 100%;
-    max-width: 1000px;
 
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
+    max-width: 1400px;
 
-    margin: 0 auto;
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 30px;
 }
 
 /* CARD */
 .projectCard {
-    display: flex;
-    flex-direction: column;
+    width: 320px;
+    height: 420px;
 
-    justify-content: center;
-    align-items: center;
+    position: relative;
 
-    text-align: center;
+    border-radius: 20px;
 
-    background: #1b1c28;
-    border: 1px solid #2a2a3a;
-    border-radius: 14px;
-
-    padding: 22px;
-    min-height: 150px;
+    overflow: hidden;
 
     text-decoration: none;
-    color: white;
 
-    transition: 0.25s ease;
+    background: #000;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    transition: 0.4s;
 }
 
-/* HOVER */
-.projectCard:hover {
-    transform: translateY(-7px);
-    border-color: #e50914;
-    box-shadow: 0 12px 28px rgba(229, 9, 20, 0.15);
-}
-
-/* TITLE */
-.projectCard h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-/* DESCRIPTION (THIS IS 100% CENTER) */
-.projectCard p {
+/* IMAGE */
+.projectCard img {
     width: 100%;
-    text-align: center;
+    height: 100%;
 
-    font-size: 13px;
-    color: #b3b3b3;
-    line-height: 1.5;
+    object-fit: cover;
+
+    transition: 0.6s ease;
+}
+
+/* OVERLAY */
+.cardOverlay {
+    position: absolute;
+    inset: 0;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background:
+        linear-gradient(to top,
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.2));
+
+    color: white;
+}
+
+/* HOVER EFFECT */
+.projectCard:hover img {
+    transform: scale(1.15);
+}
+
+.projectCard:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 0 25px cyan;
+}
+
+/* TAG */
+.tag {
+    width: fit-content;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: cyan;
+
+    color: black;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+}
+
+/* TEXT */
+.cardOverlay h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.cardOverlay p {
+    color: #d1d5db;
+    font-size: 0.9rem;
+
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.cardOverlay button {
+    width: fit-content;
+
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: rgb(60, 11, 124);
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.cardOverlay button:hover {
+    transform: translateX(5px);
 }
 
 /* MOBILE */
-@media (max-width: 600px) {
-    .projectsGrid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .pageTitle {
+        font-size: 2.2rem;
+    }
+
+    .projectCard {
+        width: 100%;
+        max-width: 340px;
     }
 }

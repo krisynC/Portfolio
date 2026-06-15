@@ -1,83 +1,151 @@
 .aboutPage {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    background: #0a0a0f;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
+    padding: 40px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(rgba(10, 10, 15, 0.88),
+            rgba(10, 10, 15, 0.88)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-/* SINGLE BIG CARD */
+/* MAIN CARD */
 .aboutCardFull {
     width: 100%;
     max-width: 900px;
-    height: 90vh;
 
-    background: #1b1c28;
-    border: 1px solid #2a2a3a;
-    border-radius: 16px;
+    padding: 40px;
 
-    padding: 30px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 
     color: white;
 
-    overflow-y: auto;
-
-    animation: fadeIn 0.8s ease;
+    animation: fadeUp 0.8s ease;
 }
 
 /* HEADINGS */
 .aboutCardFull h1 {
-    font-size: 26px;
+    font-size: 2.5rem;
     margin-bottom: 15px;
+
+    text-shadow:
+        0 0 10px cyan,
+        0 0 25px cyan;
 }
 
 .aboutCardFull h2 {
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 8px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+
+    font-size: 1.4rem;
+
+    color: cyan;
 }
 
-/* TEXT */
+/* PARAGRAPH */
 .aboutCardFull p {
-    font-size: 14px;
-    color: #b3b3b3;
+    color: #d1d5db;
     line-height: 1.6;
 }
 
-/* LIST */
+/* LISTS */
 .aboutCardFull ul {
-    padding-left: 18px;
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .aboutCardFull li {
-    font-size: 13px;
-    color: #d0d0d0;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    color: #e5e7eb;
+
+    transition: 0.2s;
 }
 
-/* SCROLLBAR CLEAN */
-.aboutCardFull::-webkit-scrollbar {
-    width: 6px;
+.aboutCardFull li:hover {
+    color: cyan;
+    transform: translateX(5px);
 }
 
-.aboutCardFull::-webkit-scrollbar-thumb {
-    background: #e50914;
-    border-radius: 10px;
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
+/* ENTRY ANIMATION */
+@keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* FLOATING LIGHT EFFECTS */
+.aboutPage::before,
+.aboutPage::after {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(0, 255, 255, 0.08);
+
+    filter: blur(80px);
+
+    animation: float 10s infinite alternate;
+}
+
+.aboutPage::before {
+    top: 10%;
+    left: 10%;
+}
+
+.aboutPage::after {
+    bottom: 10%;
+    right: 10%;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-40px);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .aboutCardFull {
+        padding: 25px;
+    }
+
+    .aboutCardFull h1 {
+        font-size: 1.8rem;
     }
 }
