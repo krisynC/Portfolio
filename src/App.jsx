@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-
 import Manager from "./components/Manager/Manager";
 import TicTacToe from "./pages/TicTacToe/src/TicTacToe";
 import LoginAuth from "./components/LoginAuth/Login";

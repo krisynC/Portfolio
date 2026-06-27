@@ -1,111 +1,95 @@
-import React, { useState, useEffect } from "react";
-import { loginUser, signupUser, getUsers, clearUsers } from "../Utils/Auth";
+import { useState, useEffect } from "react";
+import {
+  loginUser,
+  signupUser,
+  getUsers,
+  clearUsers
+} from "../Utils/Auth";
 
 const Auth = ({ setUser }) => {
-
-  // 1. Login ya Signup mode
+  // Mode
   const [isLogin, setIsLogin] = useState(true);
 
-  // 2. Messages
+  // Messages
   const [loginMsg, setLoginMsg] = useState("");
   const [signupMsg, setSignupMsg] = useState("");
 
-  // 3. Saved users list
+  // Users
   const [savedUsers, setSavedUsers] = useState([]);
 
-  // 4. Form data
+  // Form
   const [form, setForm] = useState({
     name: "",
     password: "",
     confirmPassword: ""
   });
 
-  // 5. Load users whenever mode/message changes
+  // Load users
   useEffect(() => {
-    const usersFromStorage = getUsers();
-    setSavedUsers(usersFromStorage);
+    setSavedUsers(getUsers());
   }, [isLogin, loginMsg, signupMsg]);
 
-  // 6. Input change handler
+  // Handle Input
   const handleChange = (event) => {
-    const fieldName = event.target.name;
-    const fieldValue = event.target.value;
+    const { name, value } = event.target;
 
-    setForm({
-      ...form,
-      [fieldName]: fieldValue
-    });
+    setForm((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  // 7. Submit handler
+  // Handle Submit
   const handleSubmit = () => {
-
-    // ===== LOGIN FLOW =====
-    if (isLogin === true) {
-
+    if (isLogin) {
       const user = loginUser(form.name, form.password);
 
-      // if user not found
-      if (user === null || user === undefined) {
+      if (!user) {
         setLoginMsg("Invalid credentials");
         setSignupMsg("");
         return;
       }
 
-      // login success
       setLoginMsg("Logged in successfully");
       setSignupMsg("");
 
       setUser(user.name);
-
-    }
-
-    // ===== SIGNUP FLOW =====
-    else {
-
-      // check empty fields
+    } else {
       if (
-        form.name === "" ||
-        form.password === "" ||
-        form.confirmPassword === ""
+        !form.name ||
+        !form.password ||
+        !form.confirmPassword
       ) {
         setSignupMsg("Fill all fields");
         setLoginMsg("");
         return;
       }
 
-      // check password match
       if (form.password !== form.confirmPassword) {
         setSignupMsg("Passwords do not match");
         setLoginMsg("");
         return;
       }
 
-      // create user
       const result = signupUser({
         name: form.name,
         password: form.password
       });
 
-      // if error comes
       if (result.error) {
         setSignupMsg(result.error);
         setLoginMsg("");
         return;
       }
 
-      // success signup
       setSignupMsg("Account created successfully");
       setLoginMsg("");
 
-      setUser(form.name);
+      setSavedUsers(getUsers());
 
-      // refresh saved users list
-      const updatedUsers = getUsers();
-      setSavedUsers(updatedUsers);
+      setUser(form.name);
     }
 
-    // clear form after submit
     setForm({
       name: "",
       password: "",
@@ -113,7 +97,7 @@ const Auth = ({ setUser }) => {
     });
   };
 
-  // 8. Clear all users
+  // Clear Users
   const handleClearUsers = () => {
     clearUsers();
     setSavedUsers([]);
@@ -122,32 +106,34 @@ const Auth = ({ setUser }) => {
   return (
     <div className="auth-container">
 
-      {/* TITLE */ }
       <h2>
-        { isLogin === true ? "Login" : "Sign Up" }
+        { isLogin ? "Login" : "Sign Up" }
       </h2>
 
-      {/* MESSAGE */ }
-      { isLogin === true ? (
-        loginMsg !== "" && <p>{ loginMsg }</p>
-      ) : (
-        signupMsg !== "" && <p>{ signupMsg }</p>
+      { (loginMsg || signupMsg) && (
+        <p className="msg">
+          { isLogin ? loginMsg : signupMsg }
+        </p>
       ) }
 
-      {/* TOGGLE BUTTONS */ }
-      <div>
+      <div className="tab-group">
 
-        <button onClick={ () => setIsLogin(true) }>
+        <button
+          className={ isLogin ? "tab active" : "tab" }
+          onClick={ () => setIsLogin(true) }
+        >
           Login
         </button>
 
-        <button onClick={ () => setIsLogin(false) }>
+        <button
+          className={ !isLogin ? "tab active" : "tab" }
+          onClick={ () => setIsLogin(false) }
+        >
           Sign Up
         </button>
 
       </div>
 
-      {/* NAME INPUT */ }
       <input
         type="text"
         name="name"
@@ -156,7 +142,6 @@ const Auth = ({ setUser }) => {
         onChange={ handleChange }
       />
 
-      {/* PASSWORD INPUT */ }
       <input
         type="password"
         name="password"
@@ -165,8 +150,7 @@ const Auth = ({ setUser }) => {
         onChange={ handleChange }
       />
 
-      {/* CONFIRM PASSWORD (only signup) */ }
-      { isLogin === false && (
+      { !isLogin && (
         <input
           type="password"
           name="confirmPassword"
@@ -176,31 +160,35 @@ const Auth = ({ setUser }) => {
         />
       ) }
 
-      {/* SUBMIT BUTTON */ }
-      <button onClick={ handleSubmit }>
-        { isLogin === true ? "Login" : "Create Account" }
+      <button
+        className="submit"
+        onClick={ handleSubmit }
+      >
+        { isLogin ? "Login" : "Create Account" }
       </button>
 
-      {/* SAVED USERS */ }
-      <div>
+      <div className="saved-users">
 
         <h3>Saved Users</h3>
 
-        <button onClick={ handleClearUsers }>
+        <button
+          className="clear-btn"
+          onClick={ handleClearUsers }
+        >
           Clear All Users
         </button>
 
-        {/* list */ }
         { savedUsers.length === 0 ? (
           <p>No users yet</p>
         ) : (
-          savedUsers.map((user, index) => {
-            return (
-              <div key={ index }>
-                <p>{ user.name }</p>
-              </div>
-            );
-          })
+          savedUsers.map((user, index) => (
+            <div
+              key={ index }
+              className="user-item"
+            >
+              <p>{ user.name }</p>
+            </div>
+          ))
         ) }
 
       </div>
